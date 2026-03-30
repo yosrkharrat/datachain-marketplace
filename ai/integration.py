@@ -6,8 +6,14 @@ Connects blockchain contract to AI analysis pipeline
 import json
 from pathlib import Path
 from typing import Dict, Any, Optional
-from analyzer import DatasetAnalyzer
-from ai_enhanced import AIEnhancedAnalyzer
+
+try:
+    from .analyzer import DatasetAnalyzer
+    from .ai_enhanced import AIEnhancedAnalyzer
+except ImportError:
+    # Support direct execution: python ai/integration.py
+    from analyzer import DatasetAnalyzer
+    from ai_enhanced import AIEnhancedAnalyzer
 
 
 class DatasetRegistryIntegration:

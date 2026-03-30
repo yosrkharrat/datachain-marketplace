@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DataChain AI Analyzer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel">
+        <h1>DataChain AI Analyzer</h1>
+        <p class="subtitle">Upload a dataset and get instant quality scoring, schema detection, and ML use-case suggestions.</p>
+
+        <form id="analyze-form" class="form">
+          <label>
+            Dataset Title
+            <input id="title" name="title" type="text" required placeholder="Health Dataset - Disease Prediction" />
+          </label>
+
+          <label>
+            IPFS Hash
+            <input id="ipfs_hash" name="ipfs_hash" type="text" required placeholder="Qm..." />
+          </label>
+
+          <label>
+            Label Column (optional)
+            <input id="label_col" name="label_col" type="text" placeholder="target" />
+          </label>
+
+          <label>
+            Dataset File (.csv, .parquet)
+            <input id="file" name="file" type="file" required accept=".csv,.parquet,.pq" />
+          </label>
+
+          <button id="submit-btn" type="submit">Analyze Dataset</button>
+        </form>
+      </section>
+
+      <section id="result" class="panel hidden">
+        <h2>AI Report</h2>
+        <div class="grid">
+          <article class="card"><span>Rows</span><strong id="rows">-</strong></article>
+          <article class="card"><span>Columns</span><strong id="columns">-</strong></article>
+          <article class="card"><span>Missing %</span><strong id="missing">-</strong></article>
+          <article class="card"><span>Quality Score</span><strong id="quality">-</strong></article>
+        </div>
+
+        <h3>Tags</h3>
+        <div id="tags" class="tags"></div>
+
+        <h3>Semantic Description</h3>
+        <p id="description" class="block">-</p>
+
+        <h3>Suggested Use Cases</h3>
+        <ul id="use-cases" class="list"></ul>
+      </section>
+
+      <section id="status" class="status"></section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
