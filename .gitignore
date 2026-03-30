@@ -29,3 +29,24 @@ build/
 
 # Deployment artifacts (local only, keep sepolia for CI/CD)
 /contracts/deployments/hardhat/
+
+# Python & AI layer
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+ENV/
+.Python
+
+# ML Models (cache, too large to commit)
+*.bin
+*.pt
+*.pth
+models/
+
+# AI artifacts
+ai/sample_dataset.csv
+ai/*.pkl
+ai/embeddings/
